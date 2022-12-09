@@ -1,0 +1,28 @@
+<!--pages/category/category.wxml-->
+<view class="title">
+  <text>Category</text>
+</view>
+<view class="leftContainerUp">
+  <button class="buttonBeef">
+    Beef
+    <image class ="beefImage" src="{{beefSrc}}">
+    </image>
+  </button>
+</view>
+
+
+<view class="rightContainerUp">
+
+</view>
+<view class="leftContainerMid">
+
+</view>
+<view class="rightContainerMid">
+
+</view>
+<view class="leftContainerBottom">
+
+</view>
+<view class="rightContainerBottom">
+
+</view>

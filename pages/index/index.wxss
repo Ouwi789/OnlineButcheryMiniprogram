@@ -1,0 +1,72 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.wagyuContainer{
+  position: fixed; 
+  top: 11%; 
+  left: 14%; 
+  width: 70%; 
+  height: 35%;
+}
+
+.container2 {
+  background-color: lightgray;
+  position: fixed;
+  bottom: 1%; left: 2%;
+  width: 46.7%
+}
+
+.container3{
+  background-color: lightgray;
+  position: fixed;
+  bottom: 1%; right: 2%;
+  width: 46.7%
+}
+
+.title {
+  background-color: yellow;
+  color: red;
+  font-size: 50px;
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+.button{
+  position: sticky; 
+  width: 20px; 
+  height: 20px;
+}
+.onSale{
+  position: fixed;
+  top: 46.5%;
+  font-size: 35px;
+  color: red;
+  background-color: yellow;
+  width: 100%;
+  text-align: center;
+}
+.onSaleContainer{
+  background-color: gray;
+  width: 25%;
+  height: 15%;
+}

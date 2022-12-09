@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+
+    </block>
+  </view>
+  <view class="title">
+  三细柔点
+  </view>
+  <image class="wagyuContainer" src="{{wagyuSrc}}"></image>
+  <view class="onSale">
+  打折(On Sale)
+  </view>
+  <view class="container2">
+    <button bindtap='directToPurchase'><image class="button" src="{{searchSrc}}"></image></button>
+  </view>
+  <view class="container3">
+    <button bindtap='directToCategory'><image class="button" src="{{categorySrc}}"></image></button>
+  </view>
+  <view class="onSaleContainer" style="position: fixed; top: 55%; left: 5%;">
+  
+  </view>
+
+  <view class="onSaleContainer" style="position: fixed; top: 55%; left: 37.5%;">
+  
+  </view>
+
+  <view class="onSaleContainer" style="position: fixed; top: 55%; right: 5%;">
+  
+  </view>
+  <view class="onSaleContainer" style="position: fixed; top: 75%; left: 5%;">
+  
+  </view>
+
+  <view class="onSaleContainer" style="position: fixed; top: 75%; left: 37.5%;">
+
+  </view>
+
+  <view class="onSaleContainer" style="position: fixed; top: 75%; right: 5%;">
+
+  </view>
+    
+    
+</view>

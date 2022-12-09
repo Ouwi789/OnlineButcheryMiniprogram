@@ -1,0 +1,4 @@
+<form bindsubmit='purchaseMeat'>
+<input name='content' placeholder='enter meat here'></input>
+<button form-type='submit'>Enter</button>
+</form>

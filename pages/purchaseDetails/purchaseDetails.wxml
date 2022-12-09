@@ -1,0 +1,5 @@
+<form bindsubmit='saveName'>
+<input name='content' placeholder='enter name'></input>
+<input name='content' placeholder='enter address'></input>
+<button form-type='submit'>Submit</button>
+</form>
