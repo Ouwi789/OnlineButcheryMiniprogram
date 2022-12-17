@@ -6,41 +6,36 @@
 
     </block>
   </view>
-  <view class="title">
+  <view class="title" data-weui-theme="{{dark}}">
   三细柔点
   </view>
-  <image class="wagyuContainer" src="{{wagyuSrc}}"></image>
+  
+  <!--TODO place images into the swiper and remove the current container-->
+  <swiper class ="wagyuContainer" indicator-dots="true" interval="2000" duration="1000" autoplay = "true" previous-margin="0px" next-margin="0px">
+    <block wx:for="{{images}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}">
+              <image src="{{item.src}}"></image>
+            </view>
+          </swiper-item>
+        </block>
+  </swiper>
   <view class="onSale">
   打折(On Sale)
   </view>
   <view class="container2">
+    <!-- TODO JOH-18 Use internally hosted image -->
     <button bindtap='directToPurchase'><image class="button" src="{{searchSrc}}"></image></button>
   </view>
   <view class="container3">
+    <!-- TODO JOH-18 Use internally hosted image -->
     <button bindtap='directToCategory'><image class="button" src="{{categorySrc}}"></image></button>
   </view>
-  <view class="onSaleContainer" style="position: fixed; top: 55%; left: 5%;">
-  
-  </view>
+  <mp-dialog title="test" show="{{true}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+    <view>test content</view>
+</mp-dialog>
+  <block wx:for="{{imageArray}}">
+        <view class ="onSaleContainer" style="position: fixed; top: {{item.top}}%; left: {{item.left}}%; background-color: gray;">{{item.src}}</view>
+  </block>
 
-  <view class="onSaleContainer" style="position: fixed; top: 55%; left: 37.5%;">
-  
-  </view>
-
-  <view class="onSaleContainer" style="position: fixed; top: 55%; right: 5%;">
-  
-  </view>
-  <view class="onSaleContainer" style="position: fixed; top: 75%; left: 5%;">
-  
-  </view>
-
-  <view class="onSaleContainer" style="position: fixed; top: 75%; left: 37.5%;">
-
-  </view>
-
-  <view class="onSaleContainer" style="position: fixed; top: 75%; right: 5%;">
-
-  </view>
-    
-    
 </view>
