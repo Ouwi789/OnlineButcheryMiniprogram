@@ -1,17 +1,36 @@
-// pages/category/category.js
+// pages/wagyu/wagyu.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    beefSrc: 'https://cdn-icons-png.flaticon.com/512/2537/2537216.png'
+    showDialog: false,
+    buttons: [{text: '确认'}],
+    images: [{
+      src: 'https://cdn.shopify.com/s/files/1/0365/9327/0916/products/wagyu-fullblood-scotch-fillet-steak-marble-score-9-stone-axe-300g-vics-meat-668742_1400x.jpg?v=1658117888'
+    }, {
+      src: 'https://awmgroup.com.au/wp-content/uploads/2016/05/lamb-leg.png'
+    }, {
+      src: 'https://www.thehappychickencoop.com/wp-content/uploads/2022/01/white-striping-in-chicken-meat.jpg'
+    }],
   },
-  directToBeef: function(){
+  directToPurchase: function(){
     wx.navigateTo({
-      url: '/pages/beefCategory/beefCategory',
+      url: '/pages/purchaseDetails/purchaseDetails',
     })
   },
+  addToCart:function(){
+    this.setData({
+      showDialog: true
+    })
+  },
+  tapDialogButton:function(){
+    wx.navigateTo({
+      url: '/pages/index/index',
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */

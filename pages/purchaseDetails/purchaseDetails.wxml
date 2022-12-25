@@ -1,5 +1,34 @@
-<form bindsubmit='saveName'>
-<input name='content' placeholder='enter name'></input>
-<input name='content' placeholder='enter address'></input>
-<button form-type='submit'>Submit</button>
-</form>
+<mp-form-page title="Purchasing Meat" subtitle="Enter your details!">
+  <mp-cells value="Enter Details">
+    <mp-cell>
+    <form bindsubmit='saveName'>
+  <input name='content' placeholder='enter name'></input>
+  <button form-type='submit'>Submit</button>
+  </form>
+  </mp-cell>
+
+  <mp-cell>
+    <form bindsubmit='saveAddress'>
+    <input name='content' placeholder='enter address'></input>
+    <button form-type='submit'>Submit</button>
+  </form>
+  </mp-cell>
+
+  <mp-cell>
+    <mp-checkbox-group>
+      <mp-checkbox label="Can you received it at anytime?"></mp-checkbox>
+    </mp-checkbox-group>
+  </mp-cell>
+    
+  <mp-cell>
+    <form bindsubmit='saveCreditCard'>
+      <input name='content' placeholder='Enter Card Number'></input>
+      <input name='content' placeholder='Enter Card Security Number'></input>
+      <input name='content' placeholder='Enter Expire Date'></input>
+      <button form-type='submit'>Submit</button>
+    </form>
+  </mp-cell>
+
+  </mp-cells>
+
+</mp-form-page>

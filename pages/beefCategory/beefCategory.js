@@ -1,15 +1,15 @@
-// pages/category/category.js
+// pages/beefCategory.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    beefSrc: 'https://cdn-icons-png.flaticon.com/512/2537/2537216.png'
+
   },
-  directToBeef: function(){
+  sendToWagyu: function(){
     wx.navigateTo({
-      url: '/pages/beefCategory/beefCategory',
+      url: '/pages/wagyu/wagyu',
     })
   },
   /**

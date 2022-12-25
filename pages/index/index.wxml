@@ -10,7 +10,6 @@
   三细柔点
   </view>
   
-  <!--TODO place images into the swiper and remove the current container-->
   <swiper class ="wagyuContainer" indicator-dots="true" interval="2000" duration="1000" autoplay = "true" previous-margin="0px" next-margin="0px">
     <block wx:for="{{images}}" wx:key="*this">
           <swiper-item>

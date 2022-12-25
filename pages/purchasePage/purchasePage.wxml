@@ -1,4 +1,7 @@
-<form bindsubmit='purchaseMeat'>
-<input name='content' placeholder='enter meat here'></input>
-<button form-type='submit'>Enter</button>
-</form>
+<mp-form-page title="Search" subtitle="Find the meat you want here!">
+  <mp-searchbar search="findMeat" value="Enter Meat Here!"></mp-searchbar>
+  <form bindsubmit='purchaseMeat'>
+  <input name='content' placeholder='enter meat here'></input>
+  <button form-type='submit'>Enter</button>
+  </form>
+</mp-form-page>

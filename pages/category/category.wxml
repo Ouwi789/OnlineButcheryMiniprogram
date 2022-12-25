@@ -3,7 +3,7 @@
   <text>Category</text>
 </view>
 <view class="leftContainerUp">
-  <button class="buttonBeef">
+  <button bindtap="directToBeef" class="buttonBeef">
     Beef
     <image class ="beefImage" src="{{beefSrc}}">
     </image>

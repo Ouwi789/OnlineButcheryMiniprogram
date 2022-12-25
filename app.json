@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/purchasePage/purchasePage",
     "pages/purchaseDetails/purchaseDetails",
-    "pages/category/category"
+    "pages/category/category",
+    "pages/beefCategory/beefCategory",
+    "pages/wagyu/wagyu"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -14,7 +16,6 @@
   },
   "sitemapLocation": "sitemap.json",
   "useExtendedLib": {
-    "weui" : true
+    "weui": true
   }
 }
-

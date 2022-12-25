@@ -1,0 +1,36 @@
+.wagyuContainer{
+  position: fixed;
+  top: 0%; 
+  left: 10%; 
+  width: 100%; 
+  height: 40%;
+}
+.buttonContainer {
+  position: fixed;
+  top:40%;
+  width: 100%;
+  height: 40%;
+  left: 0%;
+}
+.priceContainer{
+  font-size: 25px;
+  background-color: yellow;
+  font-weight: 100;
+  font-family: initial;
+  font-stretch: semi-expanded;
+  font-kerning: auto;
+  font-variant-ligatures: historical-ligatures;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+.price{
+  color: orange;
+  font-weight: 500;
+  font-family: fantasy;
+}
+.dollar{
+  color:red;
+  font-weight: 400;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

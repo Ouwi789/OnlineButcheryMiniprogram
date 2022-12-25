@@ -1,0 +1,42 @@
+<swiper class="wagyuContainer" interval="2000" duration="1000" autoplay = "true" previous-margin="0px" next-margin="0px">
+    <block wx:for="{{images}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}">
+              <image src="{{item.src}}"></image>
+            </view>
+          </swiper-item>
+        </block>
+  </swiper>
+
+
+
+  <mp-cells class="buttonContainer">
+  <mp-cell>
+    <div class = "priceContainer">
+      <div class="price">
+        Normal:
+      </div>
+      <div class ="dollar">
+        $5
+      </div>
+      <div class="price">
+        RRP:
+      </div>
+      <div class ="dollar">
+        $5
+      </div>
+    </div>
+  </mp-cell>
+    
+  <mp-cell>
+    <button bindtap='directToPurchase'>Buy Now!</button>
+  </mp-cell>
+  <mp-cell>
+    <button bindtap='addToCart'>Add To Cart!</button>
+  </mp-cell>
+</mp-cells>
+<mp-dialog title="Success!"show="{{showDialog}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+    <view>Added To Cart!</view>
+</mp-dialog>
+
+

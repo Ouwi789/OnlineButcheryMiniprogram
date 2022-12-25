@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
     buttons: [{text: '取消'}, {text: '确认'}],
     motto: 'Hello World',
     userInfo: {},
