@@ -17,15 +17,20 @@
         Normal:
       </div>
       <div class ="dollar">
-        $5
+        ${{price}}/Kg
       </div>
       <div class="price">
         RRP:
       </div>
       <div class ="dollar">
-        $5
+        ${{price}}/Kg
       </div>
     </div>
+  </mp-cell>
+
+  <mp-cell>
+    <text class="kg"> Kg of Meat </text>
+    <slider bindchanging = "sliderKgChange" show-value="{{true}}" min="0" max="15"/>
   </mp-cell>
     
   <mp-cell>

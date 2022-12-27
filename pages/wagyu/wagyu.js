@@ -5,6 +5,7 @@ Page({
    * Page initial data
    */
   data: {
+    price: 5,
     showDialog: false,
     buttons: [{text: '确认'}],
     images: [{
@@ -14,6 +15,12 @@ Page({
     }, {
       src: 'https://www.thehappychickencoop.com/wp-content/uploads/2022/01/white-striping-in-chicken-meat.jpg'
     }],
+  },
+  sliderKgChange: function(event){
+    this.data.price = 5
+    this.setData({
+      price: this.data.price * event.detail.value
+    })
   },
   directToPurchase: function(){
     wx.navigateTo({

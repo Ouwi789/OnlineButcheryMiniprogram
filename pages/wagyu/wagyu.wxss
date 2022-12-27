@@ -34,3 +34,9 @@
   font-weight: 400;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.kg{
+  color:orangered;
+  font: 400;
+  font-size: 20;
+  font-family: fantasy;
+}
