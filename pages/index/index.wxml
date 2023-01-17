@@ -26,6 +26,7 @@
     <!-- TODO JOH-18 Use internally hosted image -->
     <button bindtap='directToPurchase'><image class="button" src="{{searchSrc}}"></image></button>
   </view>
+  <button bindtap='directToCart'>Cart</button>
   <view class="container3">
     <!-- TODO JOH-18 Use internally hosted image -->
     <button bindtap='directToCategory'><image class="button" src="{{categorySrc}}"></image></button>

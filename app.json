@@ -6,7 +6,8 @@
     "pages/purchaseDetails/purchaseDetails",
     "pages/category/category",
     "pages/beefCategory/beefCategory",
-    "pages/wagyu/wagyu"
+    "pages/cartItems/wagyu",
+    "pages/cartItems/cartItems"
   ],
   "window": {
     "backgroundTextStyle": "light",

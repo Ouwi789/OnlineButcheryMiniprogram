@@ -30,7 +30,7 @@
 
   <mp-cell>
     <text class="kg"> Kg of Meat </text>
-    <slider bindchanging = "sliderKgChange" show-value="{{true}}" min="0" max="15"/>
+    <slider bindchange = "sliderKgChange" show-value="{{true}}" min="0" max="15"/>
   </mp-cell>
     
   <mp-cell>

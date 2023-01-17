@@ -43,6 +43,11 @@ Page({
       url: '/pages/purchasePage/purchasePage',
     })
   },
+  directToCart: function(){
+    wx.navigateTo({
+      url: '/pages/cartItems/cartItems',
+    })
+  },
   directToCategory: function(){
     wx.navigateTo({
       url: '/pages/category/category',

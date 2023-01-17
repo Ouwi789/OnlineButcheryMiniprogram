@@ -1,11 +1,14 @@
 // pages/wagyu/wagyu.js
+var data = {
+  kg: 0
+}
 Page({
-
   /**
    * Page initial data
    */
+  
   data: {
-    price: 5,
+    price: 0,
     showDialog: false,
     buttons: [{text: '确认'}],
     images: [{
@@ -18,8 +21,11 @@ Page({
   },
   sliderKgChange: function(event){
     this.data.price = 5
+    data.kg = event.detail.value
+    console.log(data.kg)
     this.setData({
-      price: this.data.price * event.detail.value
+      price: this.data.price * event.detail.value,
+      
     })
   },
   directToPurchase: function(){
@@ -94,3 +100,4 @@ Page({
 
   }
 })
+export default data;

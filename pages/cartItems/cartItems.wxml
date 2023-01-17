@@ -1,0 +1,22 @@
+<view class="titleContainer">
+  Cart Items:
+</view>
+<mp-cells>
+  <block wx:for="{{itemArray}}">
+    <mp-cell wx:if="{{item.c != 0}}">
+      <image class = "iconContainer" src="{{item.src}}"></image>
+      <view class ="textContainer"> 
+      Item: 
+      <div style="color: #FA8072; font-weight: 800;">
+        {{item.name}} 
+      </div>
+      Kg: 
+      <div style="color: #FA8072;font-weight: 800;">
+        {{item.c}} 
+      </div>
+      </view>
+      <button class = 'buttonContainer' bindtap='addKg' disabled="{{addDisabled}}">+</button>
+      <button class = 'minusButtonContainer' bindtap='minusKg'disabled="{{minusDisabled}}">-</button>
+    </mp-cell>
+  </block>
+</mp-cells>

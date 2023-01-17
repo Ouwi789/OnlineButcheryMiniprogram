@@ -1,0 +1,1 @@
+//TODO Create a mockServerData to make sure the code works, data that needs to be stored in the backend should be placed here

@@ -1,8 +1,9 @@
 <!--pages/beefCategory.wxml-->
-  <mp-cells value="Beef">
+<mp-cells value="Beef">
+  <block wx:for="{{imageArray}}">
     <mp-cell>
-    <image src="https://cdn.shopify.com/s/files/1/0365/9327/0916/products/wagyu-fullblood-scotch-fillet-steak-marble-score-9-stone-axe-300g-vics-meat-668742_1400x.jpg?v=1658117888" style="height: 50px; width:50px; position: absolute; top: 15px;" ></image>
-    <button bindtap='sendToWagyu' style="width: 60%;">Wagyu</button>
+    <image src="{{item.src}}" class="categoryContainer"></image>
+    <button bindtap='{{item.methodName}}' style="width: 60%;">Wagyu</button>
     </mp-cell>
-  </mp-cells>
-
+  </block>
+</mp-cells>

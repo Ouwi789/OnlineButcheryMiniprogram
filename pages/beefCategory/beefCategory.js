@@ -5,11 +5,15 @@ Page({
    * Page initial data
    */
   data: {
-
+    imageArray: [{
+      //TODO seperate image src with positioning of top and left
+      src: 'https://cdn.shopify.com/s/files/1/0365/9327/0916/products/wagyu-fullblood-scotch-fillet-steak-marble-score-9-stone-axe-300g-vics-meat-668742_1400x.jpg?v=1658117888', 
+      methodName: 'sendToWagyu'
+    }]
   },
   sendToWagyu: function(){
     wx.navigateTo({
-      url: '/pages/wagyu/wagyu',
+      url: '/pages/cartItems/wagyu',
     })
   },
   /**
