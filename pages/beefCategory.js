@@ -11,9 +11,22 @@ Page({
       methodName: 'sendToWagyu'
     }]
   },
-  sendToWagyu: function(){
+  sendToWagyu: function(itemId){
     wx.navigateTo({
-      url: '/pages/cartItems/wagyu',
+      url: `/pages/wagyu?itemId=${itemId}`,
+      events: {
+        // Adds a listener for the specified event to get the data sent to the current page by the open page
+        acceptDataFromOpenedPage: function(data) {
+          console.log(data)
+        },
+        someEvent: function(data) {
+          console.log(data)
+        }
+      },
+      success: function(res) {
+        // Transfer data to the open page via the event channel
+        res.eventChannel.emit('acceptDataFromOpenerPage', itemId)
+      }
     })
   },
   /**

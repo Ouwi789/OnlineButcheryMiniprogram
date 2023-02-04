@@ -19,4 +19,7 @@
       <button class = 'minusButtonContainer' bindtap='minusKg'disabled="{{minusDisabled}}">-</button>
     </mp-cell>
   </block>
+  <mp-cell>
+  <button bindtap='sendToPurchase'>Purchase Items</button>
+  </mp-cell>
 </mp-cells>

@@ -13,7 +13,7 @@ Page({
   
   purchaseMeat: function(){
     wx.navigateTo({
-      url: '/pages/purchaseDetails/purchaseDetails',
+      url: '/pages/purchaseDetails',
     })
   },
   onLoad: function (options) {

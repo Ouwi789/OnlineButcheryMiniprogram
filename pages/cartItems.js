@@ -1,4 +1,5 @@
-import data from "./wagyu.js";
+import {wagyuData, meatArray} from "./mockData";
+//TODO let purchase details page gather information from cart to know what item is being bought
 Page({
 
   /**
@@ -6,50 +7,50 @@ Page({
    */
   data: {
     //FIXME 
-    a: data.kg,
     addDisabled: false,
     minusDisabled: false,
-    
-    itemArray: [{
-      src: 'https://cdn.shopify.com/s/files/1/0365/9327/0916/products/wagyu-fullblood-scotch-fillet-steak-marble-score-9-stone-axe-300g-vics-meat-668742_1400x.jpg?v=1658117888', name: 'Wagyu', price: 5, c: data.kg
-    }, {
-      src: 'b', name: 'idk', price: 10, c: 0
-    }]
+    itemArray: meatArray
   },
 
   /**
    * Lifecycle function--Called when page load
    */
+  sendToPurchase: function(){
+    wx.navigateTo({
+      url: '/pages/purchaseDetails',
+    })
+  },
   addKg: function(){
-    if(data.kg <= 1){
+    if(wagyuData.kg <= 1){
       this.setData({
         minusDisabled: false
       })
     }
-    if(data.kg >= 15){
+    if(wagyuData.kg >= 15){
       this.setData({
         addDisabled: true
       })
     } else {
-      data.kg += 1;
+      wagyuData.kg += 1;
+      meatArray[0].c = wagyuData.kg
     }
     this.setData({
-      'itemArray[0].c': data.kg
+      'itemArray[0].c': wagyuData.kg
     })
-    
   },
   minusKg: function(){
-    if(data.kg >= 15){
+    if(wagyuData.kg >= 15){
       this.setData({
         addDisabled: false
       })
     }
-    if(data.kg <= 1){
+    if(wagyuData.kg <= 1){
       this.setData({
         minusDisabled: true
       })
     } else {
-      data.kg -= 1;
+      wagyuData.kg -= 1;
+      meatArray[0].c = data.kg
     }
     this.setData({
       'itemArray[0].c': data.kg
@@ -71,8 +72,10 @@ Page({
    */
   onShow() {
     //FIXME find a better way then refreshing
+    meatArray[0].c = wagyuData.kg
     this.setData({
-      'itemArray[0].c': data.kg
+      itemArray: meatArray,
+      'itemArray[0].c': wagyuData.kg
     })
   },
 

@@ -9,7 +9,7 @@ Page({
   },
   directToBeef: function(){
     wx.navigateTo({
-      url: '/pages/beefCategory/beefCategory',
+      url: '/pages/beefCategory',
     })
   },
   /**

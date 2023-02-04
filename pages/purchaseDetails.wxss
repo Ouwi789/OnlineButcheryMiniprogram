@@ -1,0 +1,13 @@
+.textContainer {
+  text-align: center;
+  font-size: 20px;
+  font-family: fantasy;
+  color: #FF5C5C;
+  font-weight: 500;
+}
+.titleContainer {
+  text-align: center;
+  font-size: 70px;
+  color: red;
+  font-family: fantasy;
+}

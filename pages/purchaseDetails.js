@@ -1,10 +1,11 @@
+import {meatArray} from "./mockData";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    itemArray: meatArray
   },
 
   /**
@@ -25,7 +26,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.setData({
+      itemArray: meatArray
+    })
   },
 
   /**

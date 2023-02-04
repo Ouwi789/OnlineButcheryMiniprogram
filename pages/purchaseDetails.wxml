@@ -1,4 +1,21 @@
-<mp-form-page title="Purchasing Meat" subtitle="Enter your details!">
+<view class= "titleContainer">You are Buying: </view>
+<mp-cells>
+  <block wx:for="{{itemArray}}">
+    <mp-cell wx:if="{{item.c != 0}}">
+      <view class ="textContainer"> 
+      Item: 
+      <div style="color: #FA8072; font-weight: 800;">
+        {{item.name}} 
+      </div>
+      Kg: 
+      <div style="color: #FA8072;font-weight: 800;">
+        {{item.c}} 
+      </div>
+      </view>
+    </mp-cell>
+  </block>
+</mp-cells>
+<mp-form-page>
   <mp-cells value="Enter Details">
     <mp-cell>
     <form bindsubmit='saveName'>

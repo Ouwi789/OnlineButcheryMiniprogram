@@ -40,17 +40,17 @@ Page({
   },
   directToPurchase: function(){
     wx.navigateTo({
-      url: '/pages/purchasePage/purchasePage',
+      url: '/pages/purchasePage',
     })
   },
   directToCart: function(){
     wx.navigateTo({
-      url: '/pages/cartItems/cartItems',
+      url: '/pages/cartItems',
     })
   },
   directToCategory: function(){
     wx.navigateTo({
-      url: '/pages/category/category',
+      url: '/pages/category',
     })
   },
   onLoad: function () {

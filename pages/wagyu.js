@@ -1,7 +1,6 @@
 // pages/wagyu/wagyu.js
-var data = {
-  kg: 0
-}
+import {wagyuData} from "./mockData"
+var meatToShow;
 Page({
   /**
    * Page initial data
@@ -11,6 +10,7 @@ Page({
     price: 0,
     showDialog: false,
     buttons: [{text: '确认'}],
+    meatToShow: 0,
     images: [{
       src: 'https://cdn.shopify.com/s/files/1/0365/9327/0916/products/wagyu-fullblood-scotch-fillet-steak-marble-score-9-stone-axe-300g-vics-meat-668742_1400x.jpg?v=1658117888'
     }, {
@@ -21,16 +21,15 @@ Page({
   },
   sliderKgChange: function(event){
     this.data.price = 5
-    data.kg = event.detail.value
-    console.log(data.kg)
+    wagyuData.kg = event.detail.value
     this.setData({
       price: this.data.price * event.detail.value,
-      
     })
+    
   },
   directToPurchase: function(){
     wx.navigateTo({
-      url: '/pages/purchaseDetails/purchaseDetails',
+      url: '/pages/purchaseDetails',
     })
   },
   addToCart:function(){
@@ -40,15 +39,23 @@ Page({
   },
   tapDialogButton:function(){
     wx.navigateTo({
-      url: '/pages/index/index',
+      url: '/pages/index',
+    })
+  },
+  copyData: function(a, b){
+    this.setData({
+      a: b
     })
   },
 
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad(options) {
-
+  onLoad(option) {
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('acceptDataFromOpenerPage', function(data) {
+      meatToShow = data;
+    })
   },
 
   /**
@@ -100,4 +107,3 @@ Page({
 
   }
 })
-export default data;
