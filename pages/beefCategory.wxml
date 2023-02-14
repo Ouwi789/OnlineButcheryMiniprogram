@@ -3,7 +3,7 @@
   <block wx:for="{{imageArray}}">
     <mp-cell>
     <image src="{{item.src}}" class="categoryContainer"></image>
-    <button bindtap='{{item.methodName}}' style="width: 60%;">Wagyu</button>
+    <button bindtap="sendToWagyu" data-arg1 ="0"style="width: 60%;">Wagyu</button>
     </mp-cell>
   </block>
 </mp-cells>

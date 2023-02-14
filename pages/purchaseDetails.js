@@ -1,4 +1,4 @@
-import {meatArray} from "./mockData";
+import {meatArray, wagyuData} from "./mockData";
 Page({
 
   /**
@@ -26,8 +26,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    meatArray[0].c = wagyuData.kg
     this.setData({
-      itemArray: meatArray
+      itemArray: meatArray,
+      'itemArray[0].c': wagyuData.kg
     })
   },
 
