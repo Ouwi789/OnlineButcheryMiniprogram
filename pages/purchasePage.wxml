@@ -1,7 +1,15 @@
 <mp-form-page title="Search" subtitle="Find the meat you want here!">
-  <mp-searchbar search="findMeat" value="Enter Meat Here!"></mp-searchbar>
-  <form bindsubmit='purchaseMeat'>
-  <input name='content' placeholder='enter meat here'></input>
-  <button form-type='submit'>Enter</button>
-  </form>
+  <mp-searchbar bindinput="findMeat" value="Enter Meat Here!"></mp-searchbar>
+  <view wx:for="{{searchResults}}">
+    <mp-cell>
+      <view class ="textContainer"> 
+        <div style="color: #FA8072; font-weight: 800;">
+            {{item.name}} 
+          </div>
+      </view>
+      <image class="categoryContainer" src ="{{item.src}}"></image> 
+      <button bindtap="sendToWagyu" data-arg1="{{item.link}}" style="width: 60%;">Buy Now</button>
+      
+    </mp-cell>
+  </view>
 </mp-form-page>

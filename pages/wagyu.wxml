@@ -1,7 +1,4 @@
 
- <view>
- {{meatToShow}}
- </view>
   <swiper class="wagyuContainer" interval="2000" duration="1000" autoplay = "true" previous-margin="0px" next-margin="0px">
     <block wx:for="{{images}}" wx:key="*this">
           <swiper-item>

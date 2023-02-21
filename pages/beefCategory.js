@@ -16,19 +16,7 @@ Page({
     wx.navigateTo({
       
       //${itemId}
-      url: `/pages/wagyu?itemId=${arg1}`,
-      events: {
-        // Adds a listener for the specified event to get the data sent to the current page by the open page
-        acceptDataFromOpenedPage: function(data) {
-          console.log(data)
-        },
-        someEvent: function(data) {
-          console.log(data)
-        }
-      },
-      success: function(res) {
-        // Transfer data to the open page via the event channel
-      }
+      url: `/pages/wagyu?itemId=${arg1}`
     })
   },
   /**
