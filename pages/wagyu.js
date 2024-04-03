@@ -1,30 +1,63 @@
 // pages/wagyu/wagyu.js
-import {wagyuData, meatArray, displayArray} from "./mockData"
+import {itemArray, fetchMeatArrayData} from "./localData"
 Page({
   /**
    * Page initial data
    */
-  
   data: {
     price: 0,
     showDialog: false,
-    buttons: [{text: '确认'}],
-    meatToShow: 0,
-    images: []
+    buttons: [{text: 'Success!'}],
+    image: 'url',
+    actualPrice: 0,
+    meat: {},
+    kg: 0,
+    display: false,
+    images: [],
+    soldOut: false,
+
+  },
+  roundToNearestFiveCents(number) {
+    return Math.round(number * 20) / 20;
   },
   sliderKgChange: function(event){
-    wagyuData.kg = event.detail.value
     this.setData({
-      price: 5 * event.detail.value,
+      price: this.roundToNearestFiveCents(this.data.actualPrice * event.detail.value),
+      kg: event.detail.value
     })
-    
+  },
+  changeItemArray: function(array, quantity){
+    let inArray = false;
+    for(let i = 0; i < array.length; i++){
+      if(array[i].id === this.data.meat.id){
+        if(quantity === 0){
+          array.splice(i, 1)
+          return
+        } else {
+          array[i].kg = quantity;
+          inArray = true;
+          break;
+        }
+      }
+    }
+    if(!inArray){
+      array.push({
+        name: this.data.meat.name, 
+        id: this.data.meat.id,
+        kg: quantity,
+        price: this.data.price,
+        discount: 0
+      })
+    }
   },
   directToPurchase: function(){
+    this.changeItemArray(itemArray, this.data.kg)
     wx.navigateTo({
       url: '/pages/purchaseDetails',
     })
   },
   addToCart:function(){
+    this.changeItemArray(itemArray, this.data.kg)
     this.setData({
       showDialog: true
     })
@@ -32,11 +65,6 @@ Page({
   tapDialogButton:function(){
     wx.navigateTo({
       url: '/pages/index',
-    })
-  },
-  copyData: function(a, b){
-    this.setData({
-      a: b
     })
   },
 
@@ -57,21 +85,51 @@ Page({
   /**
    * Lifecycle function--Called when page show
    */
-  onShow() {
-    var pages = getCurrentPages();
-    var currentPage = pages[pages.length - 1];
-    var options = currentPage.options;
-    this.setData({
-      meatToShow: options.itemId,
-      images: displayArray[options.itemId].images
-    })
+  async onShow() {
+    try {
+      const meatArray = await fetchMeatArrayData();
+      var pages = getCurrentPages();
+      var currentPage = pages[pages.length - 1];
+      var options = currentPage.options;
+      this.setData({
+        image: meatArray[options.itemId-1].image,
+        actualPrice: meatArray[options.itemId-1].price,
+        meat: meatArray[options.itemId-1],
+        display: meatArray[options.itemId-1].amount <= 0 && meatArray[options.itemId-1].display,
+        soldOut: meatArray[options.itemId-1].amount <= 0
+      })
+      this.setData({
+        images: this.data.image.split(",")
+      })
+    } catch(e) {
+      console.log(e)
+    }
+    
   },
 
   /**
    * Lifecycle function--Called when page hide
    */
-  onHide() {
-
+  async onHide() {
+    try {
+      const meatArray = await fetchMeatArrayData();
+      var pages = getCurrentPages();
+      var currentPage = pages[pages.length - 1];
+      var options = currentPage.options;
+      this.setData({
+        image: meatArray[options.itemId-1].image,
+        actualPrice: meatArray[options.itemId-1].price,
+        meat: meatArray[options.itemId-1],
+        display: meatArray[options.itemId-1].amount <= 0 && meatArray[options.itemId-1].display,
+        soldOut: meatArray[options.itemId-1].amount <= 0
+      })
+      this.setData({
+        images: [image]
+      })
+    } catch(e) {
+      console.log(e)
+    }
+    
   },
 
   /**

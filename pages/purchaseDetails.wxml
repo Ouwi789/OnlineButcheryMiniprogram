@@ -1,51 +1,62 @@
-<view class= "titleContainer">You are Buying: </view>
+<view class="titleContainer">You are Buying: </view>
 <mp-cells>
-  <block wx:for="{{itemArray}}">
-    <mp-cell wx:if="{{item.c != 0}}">
-      <view class ="textContainer"> 
-      Item: 
-      <div style="color: #FA8072; font-weight: 800;">
-        {{item.name}} 
-      </div>
-      Kg: 
-      <div style="color: #FA8072;font-weight: 800;">
-        {{item.c}} 
-      </div>
+  <block wx:for="{{items}}">
+    <mp-cell>
+      <view class="textContainer">
+        Item:
+        <div style="color: #FA8072; font-weight: 800;">
+          {{item.name}}
+        </div>
+        Kg:
+        <div style="color: #FA8072;font-weight: 800;">
+          {{item.kg}}
+        </div>
       </view>
     </mp-cell>
   </block>
 </mp-cells>
+
 <mp-form-page>
-  <mp-cells value="Enter Details">
-    <mp-cell>
-    <form bindsubmit='saveName'>
-  <input name='content' placeholder='enter name'></input>
-  <button form-type='submit'>Submit</button>
+  <form bindsubmit='SaveDetails'>
+    <mp-cells bindchange='formChange' value="Enter Details">
+      <mp-cell>
+        <input bindfocus ="cleanUpValidation" bindblur ='requireValidate' data-field='fName' data-label ='first name' name='fname' placeholder='first name'></input>
+        <div style="color: red;">{{errors.fName}}</div>
+      </mp-cell>
+
+      <mp-cell>
+        <input bindfocus ="cleanUpValidation" bindblur ='requireValidate' data-field='lName' data-label ='last name' name='lname' placeholder='last name'></input>
+        <div style="color: red;">{{errors.lName}}</div>
+      </mp-cell>
+
+      <mp-cell>
+        <input bindfocus ="cleanUpValidation" bindblur ='requireValidate' data-field='addressLine1' data-label ='address line 1' name='addressLine1' placeholder='addressLine1'></input>
+        <div style="color: red;">{{errors.addressLine1}}</div>
+      </mp-cell>
+      <mp-cell>
+        <input name='addressLine2' placeholder='addressLine2'></input>
+      </mp-cell>
+      <mp-cell>
+        <input bindfocus ="cleanUpValidation" bindblur ='requireValidate' data-field='suburb' data-label ='suburb' name='suburb' placeholder='suburb'></input>
+        <div style="color: red;">{{errors.suburb}}</div>
+      </mp-cell>
+      <mp-cell>
+        <input bindfocus ="cleanUpValidation" bindblur ='requireValidate' data-field='postcode' data-label ='postcode' name='postcode' placeholder='postcode'></input>
+        <div style="color: red;">{{errors.postcode}}</div>
+      </mp-cell>
+      <mp-checkbox-group bindchange="checkBoxChange">
+        <mp-checkbox wx:for="{{checkboxItems}}" wx:key="value" label="{{item.name}}" value="{{item.value}}" checked="{{item.checked}}"></mp-checkbox>
+      </mp-checkbox-group>
+      <mp-cell>
+        <button disabled ='{{submitDisabled}}' form-type='submit'>Submit</button>
+      </mp-cell>
+    </mp-cells>
   </form>
-  </mp-cell>
-
-  <mp-cell>
-    <form bindsubmit='saveAddress'>
-    <input name='content' placeholder='enter address'></input>
-    <button form-type='submit'>Submit</button>
-  </form>
-  </mp-cell>
-
-  <mp-cell>
-    <mp-checkbox-group>
-      <mp-checkbox label="Can you received it at anytime?"></mp-checkbox>
-    </mp-checkbox-group>
-  </mp-cell>
-    
-  <mp-cell>
-    <form bindsubmit='saveCreditCard'>
-      <input name='content' placeholder='Enter Card Number'></input>
-      <input name='content' placeholder='Enter Card Security Number'></input>
-      <input name='content' placeholder='Enter Expire Date'></input>
-      <button form-type='submit'>Submit</button>
-    </form>
-  </mp-cell>
-
-  </mp-cells>
-
+  <view wx:if="{{error}}">
+    <div>{{errText}}</div>
+  </view>
 </mp-form-page>
+
+<mp-dialog title="Success!" show="{{showDialog}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+  <view>Your Order Number Is: {{showId}}</view>
+</mp-dialog>

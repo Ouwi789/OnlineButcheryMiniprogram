@@ -1,9 +1,14 @@
 <!--pages/beefCategory.wxml-->
-<mp-cells value="Beef">
-  <block wx:for="{{imageArray}}">
-    <mp-cell>
-    <image src="{{item.src}}" class="categoryContainer"></image>
-    <button bindtap="sendToWagyu" data-arg1 ="0"style="width: 60%;">Wagyu</button>
-    </mp-cell>
-  </block>
-</mp-cells>
+<view wx:if="{{!error}}">
+  <mp-cells value="Beef">
+    <block wx:for="{{imageArray}}">
+      <mp-cell>
+        <image src="{{item.image.url}}" class="categoryContainer"></image>
+        <button bindtap="sendToWagyu" data-arg1="{{item.id}}" style="width: 60%;">{{item.name}}</button>
+      </mp-cell>
+    </block>
+  </mp-cells>
+</view>
+<view wx:if="{{error}}">
+  <div>{{errText}}</div>
+</view>

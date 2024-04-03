@@ -3,7 +3,7 @@
   <text>Category</text>
 </view>
 <view class="leftContainerUp">
-  <button bindtap="directToBeef" class="buttonBeef">
+  <button bindtap="directToBeef" data-arg1="Beef" class="buttonBeef">
     Beef
     <image class ="beefImage" src="{{beefSrc}}">
     </image>
@@ -12,17 +12,41 @@
 
 
 <view class="rightContainerUp">
-
+  <button bindtap="directToBeef" data-arg1="Pork" class="buttonBeef">
+    Pork
+    <image class ="beefImage" src="{{beefSrc}}">
+    </image>
+  </button>
 </view>
+
 <view class="leftContainerMid">
-
+  <button bindtap="directToBeef" data-arg1="Lamb" class="buttonBeef">
+    Lamb
+    <image class ="beefImage" src="{{beefSrc}}">
+    </image>
+  </button>
 </view>
+
 <view class="rightContainerMid">
-
+  <button bindtap="directToBeef" data-arg1="Chicken" class="buttonBeef">
+    Chicken
+    <image class ="beefImage" src="{{beefSrc}}">
+    </image>
+  </button>
 </view>
+
 <view class="leftContainerBottom">
-
+  <button bindtap="directToBeef" data-arg1="Duck" class="buttonBeef">
+    Duck
+    <image class ="beefImage" src="{{beefSrc}}">
+    </image>
+  </button>
 </view>
-<view class="rightContainerBottom">
 
+<view class="rightContainerBottom">
+  <button bindtap="directToBeef" data-arg1="Other" class="buttonBeef">
+    Other
+    <image class ="beefImage" src="{{beefSrc}}">
+    </image>
+  </button>
 </view>

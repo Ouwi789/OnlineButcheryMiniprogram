@@ -3,8 +3,7 @@
 </view>
 <mp-cells>
   <block wx:for="{{itemArray}}">
-    <mp-cell wx:if="{{item.c != 0}}">
-      <image class = "iconContainer" src="{{item.src}}"></image>
+    <mp-cell>
       <view class ="textContainer"> 
       Item: 
       <div style="color: #FA8072; font-weight: 800;">
@@ -12,11 +11,11 @@
       </div>
       Kg: 
       <div style="color: #FA8072;font-weight: 800;">
-        {{item.c}} 
+        {{item.kg}} 
       </div>
       </view>
-      <button class = 'buttonContainer' bindtap='addKg' disabled="{{addDisabled}}">+</button>
-      <button class = 'minusButtonContainer' bindtap='minusKg'disabled="{{minusDisabled}}">-</button>
+      <button class = 'buttonContainer' bindtap='addKg' data-arg1 = "{{item.id}}">+</button>
+      <button class = 'minusButtonContainer' bindtap='minusKg' data-arg1 = "{{item.id}}">-</button>
     </mp-cell>
   </block>
   <mp-cell>

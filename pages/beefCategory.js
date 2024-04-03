@@ -1,20 +1,18 @@
 // pages/beefCategory.js
+import {fetchMeatArrayData} from './localData'
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    imageArray: [{
-      //TODO seperate image src with positioning of top and left
-      src: 'https://cdn.shopify.com/s/files/1/0365/9327/0916/products/wagyu-fullblood-scotch-fillet-steak-marble-score-9-stone-axe-300g-vics-meat-668742_1400x.jpg?v=1658117888', 
-      methodName: 'sendToWagyu'
-    }]
+    imageArray: [],
+    error: false,
+    errText: ""
   },
   sendToWagyu: function(event){
     var arg1 = event.currentTarget.dataset.arg1;
     wx.navigateTo({
-      
       //${itemId}
       url: `/pages/wagyu?itemId=${arg1}`
     })
@@ -30,15 +28,48 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady() {
-
+    
   },
 
   /**
    * Lifecycle function--Called when page show
    */
-  onShow() {
-
+  createBeefArray(newArray, wholeArray, type){
+    if(type == "Other"){
+      for(let i = 0; i < wholeArray.length; i++){
+        if(wholeArray[i].description != "Beef" && wholeArray[i].description != "Chicken" && wholeArray[i].description != "Duck" && wholeArray[i].description != "Pork" && wholeArray[i].description != "Lamb"){
+          newArray.push(wholeArray[i]);
+        }
+      }
+    } else {
+      for(let i = 0; i < wholeArray.length; i++){
+        if(wholeArray[i].description == type){
+          newArray.push(wholeArray[i]);
+        }
+      }
+    }
   },
+ async onShow() {
+  try {
+    const meatArray = await fetchMeatArrayData();
+    const imageArray = [];
+    var pages = getCurrentPages();
+    var currentPage = pages[pages.length - 1];
+    var options = currentPage.options;
+    this.createBeefArray(imageArray, meatArray, options.category);
+    this.setData({
+      imageArray: imageArray,
+      error: false
+    });
+  } catch (error) {
+    console.error('Error occurred while fetching or processing the data:', error);
+    this.setData({
+      error: true,
+      errText: "There seems to be an error within our API. Please try again tomorrow."
+    })
+  }
+},
+  
 
   /**
    * Lifecycle function--Called when page hide

@@ -1,7 +1,7 @@
 //index.js
-//获取应用实例
+//获取应用实例,
+import { getUserOpenId } from "./login.js"
 const app = getApp()
-
 Page({
   data: {
     motto: 'Hello World',
@@ -44,8 +44,14 @@ Page({
     })
   },
   directToCart: function(){
+    
     wx.navigateTo({
       url: '/pages/cartItems',
+    })
+  },
+  directToOrderLog: function(){
+    wx.navigateTo({
+      url: '/pages/orderLogs',
     })
   },
   directToCategory: function(){
@@ -54,6 +60,7 @@ Page({
     })
   },
   onLoad: function () {
+    getUserOpenId();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -89,4 +96,5 @@ Page({
       hasUserInfo: true
     })
   }
+
 })

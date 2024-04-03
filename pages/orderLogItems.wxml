@@ -1,0 +1,14 @@
+<view wx:if="{{!error}}">
+  <mp-cells>
+    <block wx:for="{{orderItems}}">
+      <mp-cell>Item: {{item.name}} Quantity: {{item.amount}} {{item.unit}} Price: ${{item.price * item.amount}}</mp-cell>
+    </block>
+  </mp-cells>
+  <h1>Total Price: ${{totalPrice}}</h1>
+  <button bindtap="deleteOrder" disabled="{{buttonDisabled}}"> {{buttonText}} </button>
+</view>
+<view wx:if="{{error}}">
+  <div>
+    {{errText}}
+  </div>
+</view>

@@ -1,6 +1,6 @@
 /* pages/cartItems/cartItems.wxss */
 .textContainer {
-  text-align: center;
+  text-align: left;
   font-size: 20px;
   font-family: fantasy;
   color: #FF5C5C;

@@ -1,19 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-
-    </block>
-  </view>
   <view class="title" data-weui-theme="{{dark}}">
-  三细柔点
+  三喜肉店
   </view>
   
   <swiper class ="wagyuContainer" indicator-dots="true" interval="2000" duration="1000" autoplay = "true" previous-margin="0px" next-margin="0px">
     <block wx:for="{{images}}" wx:key="*this">
           <swiper-item>
-            <view class="swiper-item {{item}}">
+            <view>
               <image src="{{item.src}}"></image>
             </view>
           </swiper-item>
@@ -26,10 +20,17 @@
     <!-- TODO JOH-18 Use internally hosted image -->
     <button bindtap='directToPurchase'><image class="button" src="{{searchSrc}}"></image></button>
   </view>
-  <button bindtap='directToCart'>Cart</button>
+  <button class ="cartButton" bindtap='directToCart'>
+    <image class="button" src="https://cdn-icons-png.flaticon.com/512/263/263142.png"/>
+  </button>
+  <button class="orderButton" bindtap="directToOrderLog">
+    <image class="button" src="https://www.pngitem.com/pimgs/m/252-2523555_order-transparent-background-png-order-logo-png-png.png"/>
+  </button>
   <view class="container3">
     <!-- TODO JOH-18 Use internally hosted image -->
-    <button bindtap='directToCategory'><image class="button" src="{{categorySrc}}"></image></button>
+    <button bindtap='directToCategory'>
+      <image class="button" src="{{categorySrc}}"/>
+    </button>
   </view>
   <block wx:for="{{imageArray}}">
         <view class ="onSaleContainer" style="position: fixed; top: {{item.top}}%; left: {{item.left}}%; background-color: gray;">{{item.src}}</view>

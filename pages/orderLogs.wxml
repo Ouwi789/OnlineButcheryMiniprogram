@@ -1,0 +1,18 @@
+<view wx:if="{{hide}}">
+  <button bindtap="GetOrderLog"> Get Orders </button>
+</view>
+
+<view wx:if="{{!error}}">
+<mp-cells>
+  <block wx:for="{{orders}}">
+    <mp-cell> Order Id: {{item.id}} Paid: {{item.showPaid}} Pickup: {{item.showPickup}} Status: {{item.status}}</mp-cell>
+    <button disabled ="{{item.buttonDisabled}}" bindtap="OrderItems" data-arg1="{{item.id}}">Click For More Detail</button>
+  </block>
+</mp-cells>
+</view>
+
+<view wx:if="{{error}}">
+  <div>
+    {{errText}}
+  </div>
+</view>

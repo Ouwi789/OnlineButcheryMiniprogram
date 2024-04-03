@@ -1,4 +1,4 @@
-import {wagyuData, meatArray} from "./mockData";
+import {itemArray} from "./localData";
 //TODO let purchase details page gather information from cart to know what item is being bought
 Page({
 
@@ -9,7 +9,7 @@ Page({
     //FIXME 
     addDisabled: false,
     minusDisabled: false,
-    itemArray: meatArray
+    itemArray: itemArray
   },
 
   /**
@@ -20,40 +20,32 @@ Page({
       url: '/pages/purchaseDetails',
     })
   },
-  addKg: function(){
-    if(wagyuData.kg <= 1){
-      this.setData({
-        minusDisabled: false
-      })
+  locateIndexOfArray: function(array, id){
+    for(let i = 0; i < array.length; i++){
+      if(array[i].id === id){
+        return i
+      }
     }
-    if(wagyuData.kg >= 15){
-      this.setData({
-        addDisabled: true
-      })
-    } else {
-      wagyuData.kg += 1;
-      meatArray[0].c = wagyuData.kg
+    return -1
+  },
+  addKg: function(event){
+    var arg1 = parseInt(event.currentTarget.dataset.arg1);
+    var index = this.locateIndexOfArray(itemArray, arg1)
+    if(!(itemArray[index].kg >= 15)){
+      itemArray[index].kg += 1;
     }
     this.setData({
-      'itemArray[0].c': wagyuData.kg
+      itemArray: itemArray
     })
   },
-  minusKg: function(){
-    if(wagyuData.kg >= 15){
-      this.setData({
-        addDisabled: false
-      })
-    }
-    if(wagyuData.kg <= 1){
-      this.setData({
-        minusDisabled: true
-      })
-    } else {
-      wagyuData.kg -= 1;
-      meatArray[0].c = data.kg
+  minusKg: function(event){
+    var arg1 = parseInt(event.currentTarget.dataset.arg1);
+    var index = this.locateIndexOfArray(itemArray, arg1)
+    if(!(itemArray[index].kg <= 1)){
+      itemArray[index].kg -= 1;
     }
     this.setData({
-      'itemArray[0].c': data.kg
+      itemArray: itemArray
     })
   },
   onLoad(options) {
@@ -71,12 +63,9 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
-    //FIXME find a better way then refreshing
-    meatArray[0].c = wagyuData.kg
-    this.setData({
-      itemArray: meatArray,
-      'itemArray[0].c': wagyuData.kg
-    })
+   this.setData({
+    itemArray: itemArray
+  })
   },
 
   /**

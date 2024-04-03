@@ -7,8 +7,9 @@
     "pages/beefCategory",
     "pages/wagyu",
     "pages/purchaseDetails",
-    "pages/cartItems"
-    
+    "pages/cartItems",
+    "pages/orderLogs",
+    "pages/orderLogItems"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -22,10 +22,10 @@
 
 .wagyuContainer{
   position: fixed; 
-  top: 11%; 
+  top: 17%; 
   left: 14%; 
   width: 70%; 
-  height: 35%;
+  height: 30%;
 }
 
 .container2 {
@@ -69,4 +69,16 @@
   background-color: gray;
   width: 25%;
   height: 15%;
+}
+.cartButton {
+  position: fixed; 
+  width: 46.7%; 
+  top: 10%;
+  left: 2%;
+}
+.orderButton {
+  position: fixed; 
+  width: 46.7%; 
+  top: 10%;
+  right: 2%;
 }

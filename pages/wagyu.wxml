@@ -1,15 +1,18 @@
 
-  <swiper class="wagyuContainer" interval="2000" duration="1000" autoplay = "true" previous-margin="0px" next-margin="0px">
+
+  <view wx:if="{{soldOut}}">
+      <h1 class = "soldOutTag">Sold Out!</h1>
+    </view>
+  <swiper class = "wagyuContainer" interval="2000" duration="1000" autoplay = "true" previous-margin="0px" next-margin="0px" indicator-dots="{{true}}" indicator-active-color="#eb5f3f">
+    
     <block wx:for="{{images}}" wx:key="*this">
           <swiper-item>
             <view class="swiper-item {{item}}">
-              <image src="{{item.src}}"></image>
+              <image src="{{item}}"></image>
             </view>
           </swiper-item>
         </block>
   </swiper>
-
-
 
 
   <mp-cells class="buttonContainer">
@@ -36,10 +39,10 @@
   </mp-cell>
     
   <mp-cell>
-    <button bindtap='directToPurchase'>Buy Now!</button>
+    <button bindtap='directToPurchase' disabled = '{{display}}'>Buy Now!</button>
   </mp-cell>
   <mp-cell>
-    <button bindtap='addToCart'>Add To Cart!</button>
+    <button bindtap='addToCart' disabled = '{{display}}' >Add To Cart!</button>
   </mp-cell>
 </mp-cells>
 <mp-dialog title="Success!"show="{{showDialog}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">

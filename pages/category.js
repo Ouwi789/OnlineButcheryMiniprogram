@@ -7,9 +7,10 @@ Page({
   data: {
     beefSrc: 'https://cdn-icons-png.flaticon.com/512/2537/2537216.png'
   },
-  directToBeef: function(){
+  directToBeef: function(event){
+    var arg1 = event.currentTarget.dataset.arg1;
     wx.navigateTo({
-      url: '/pages/beefCategory',
+      url: `/pages/beefCategory?category=${arg1}`,
     })
   },
   /**
